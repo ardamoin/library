@@ -1,0 +1,17 @@
+body {
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.fields {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+}
+
+

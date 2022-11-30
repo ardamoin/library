@@ -6,9 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/library.png">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <h1>library</h1>
+
+    <div class="fields">
+        <div class="field">
+            Book
+            <input type="text">
+        </div>
+        <div class="field">
+            Author
+            <input type="text">
+        </div>
+        <div class="field">
+            Pages
+            <input type="text">
+        </div>
+        <div class="field">
+            Status
+            <select name="read" id="read">
+                <option value="read">Read</option>
+                <option value="not read">Not read</option>
+            </select>
+        </div>
+    </div>
+
+    <button>Submit</button>
+
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Author</td>
+            <td>Page Count</td>
+            <td>Status</td>
+        </tr>
+    </table>
+
 </body>
 </html>
