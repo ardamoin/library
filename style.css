@@ -9,8 +9,14 @@ table {
     justify-content: center;
 }
 
-td {
-    padding: 0 150px;
+th, td {
+    padding: 15px 130px;
+    border-bottom: 1px solid #e1e1e1;
+
+}
+
+.header {
+    font-weight: bold;
 }
 
 .fields {
