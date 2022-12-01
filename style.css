@@ -1,17 +1,42 @@
 body {
     font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+table {
+    display: flex;
+    justify-content: center;
+}
+
+td {
+    padding: 0 150px;
 }
 
 .fields {
     display: flex;
     justify-content: center;
+    align-items: flex-end;
     gap: 20px;
+    margin-bottom: 50px;
 }
 
 .field {
     display: flex;
     flex-direction: column;
-    flex: 0 0 auto;
+    flex: 0 0 none;
+    gap: 10px;
+}
+
+input {
+    width: 200px;
+}
+
+.submit {
+    min-width: 100px;
+    height: fit-content;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 
