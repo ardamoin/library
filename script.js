@@ -19,7 +19,7 @@ function addBookToLibrary(book) {
     for(let libraryBook of myLibrary) {
         if (libraryBook.title === book.title) {
             duplicate = true;
-            alert(`Book ${book.title} already exists in the library`);
+            alert(`${book.title} already exists in the library`);
         }
     }
 
