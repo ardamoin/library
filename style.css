@@ -9,11 +9,15 @@ table {
     justify-content: center;
 }
 
-th, td {
-    padding: 15px 130px;
+th, td:not(.remove-cell) {
+    padding: 15px 100px;
     border-bottom: 1px solid #e1e1e1;
     text-align: center;
 
+}
+
+.remove-cell {
+    padding-left: 30px;
 }
 
 .header {

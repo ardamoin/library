@@ -19,10 +19,17 @@ function addBookToLibrary(book) {
     for(let libraryBook of myLibrary) {
         if (libraryBook.title === book.title) {
             duplicate = true;
+            alert(`Book ${book.title} already exists in the library`);
         }
     }
 
     if (!duplicate) myLibrary.push(book);
+
+    return duplicate;
+}
+
+function removeBookFromLibrary(title) {
+    myLibrary = myLibrary.filter(book => book.title !== title);
 }
 
 function updateTable(book) {
@@ -32,18 +39,52 @@ function updateTable(book) {
     let pages = document.createElement("td");
     let read = document.createElement("td");
     let readButton = document.createElement("button");
+    let removeCell = document.createElement("td");
+    let removeButton = document.createElement("button");
+    readButton.classList.add("read-button");
+    removeCell.classList.add("remove-cell");
+    removeButton.classList.add("remove-button");
 
     title.textContent = book.title;
     author.textContent = book.author;
     pages.textContent = book.pages;
     readButton.textContent = book.read;
-    read.appendChild(readButton);
+    removeButton.textContent = 'Remove'
+
+    removeButton.setAttribute('booktitle', title.textContent);
+
+    removeButton.addEventListener('click', function() {
+        const currentTitle = removeButton.getAttribute('booktitle');
+        const currentRow = removeButton.parentElement.parentElement;
+
+        if (confirm(`Are you sure you want to remove ${currentTitle}?`)) {
+            removeBookFromLibrary(currentTitle);
+            currentRow.remove();
+        }
+        
+    })
+
+    readButton.addEventListener('click', function() {
+        switch (readButton.textContent) {
+            case 'Read':
+                readButton.textContent = 'Not read';
+                break;
+
+            case 'Not read':
+                readButton.textContent = 'Read';
+                break;
+        }
+    })
+
 
     newRow.appendChild(title);
     newRow.appendChild(author);
     newRow.appendChild(pages);
     newRow.appendChild(read);
-
+    read.appendChild(readButton);
+    newRow.appendChild(removeCell);
+    removeCell.appendChild(removeButton);
+    
     table.appendChild(newRow);
 }
 
@@ -61,12 +102,16 @@ for(let book of myLibrary) {
     updateTable(book);
 }
 
+let readButtons = document.querySelectorAll(".read-button");
 
 submit.addEventListener("click", () => {
     if (bookName.value !== '' && author.value !== '' && pages.value !== '') {
         const newBook = new Book(bookName.value, author.value, pages.value, read.value);
-        addBookToLibrary(newBook);
-        updateTable(newBook);
+
+        if (!addBookToLibrary(newBook)) {
+            updateTable(newBook);
+        } 
+        
         clearInputs();
     }
 })
