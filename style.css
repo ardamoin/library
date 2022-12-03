@@ -1,5 +1,5 @@
 body {
-    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     display: flex;
     flex-direction: column;
 }
@@ -61,17 +61,24 @@ input {
     width: 100%;
     padding: 10px;
     font-size: 20px;
-    margin-top: auto;
   }
 
-  .fa-github {
-    color: #191919;
-    font-size: 24px;
-    transition: transform 0.3s ease-in-out;
-  }
+.fa-github {
+color: #191919;
+font-size: 24px;
+transition: transform 0.3s ease-in-out;
+}
 
-  .fa-github:hover {
-    transform: rotate(360deg) scale(1.2);
-  }
+.fa-github:hover {
+transform: rotate(360deg) scale(1.2);
+}
 
+
+.read-button {
+    width: 95px;
+}
+
+#read { 
+    height: 30px;
+}
 

@@ -43,7 +43,7 @@ function updateTable(book) {
     let removeButton = document.createElement("button");
     readButton.classList.add("read-button");
     removeCell.classList.add("remove-cell");
-    removeButton.classList.add("remove-button");
+    removeButton.classList.add("remove-button", "btn", "btn-outline-danger");
 
     title.textContent = book.title;
     author.textContent = book.author;
@@ -53,6 +53,7 @@ function updateTable(book) {
 
     readButton.setAttribute('booktitle', title.textContent);
     removeButton.setAttribute('booktitle', title.textContent);
+    readButton.textContent === 'Read' ? readButton.classList.add("btn", "btn-outline-success") : readButton.classList.add("btn", "btn-outline-warning");
 
     removeButton.addEventListener('click', function() {
         const currentTitle = removeButton.getAttribute('booktitle');
@@ -66,13 +67,18 @@ function updateTable(book) {
     })
 
     readButton.addEventListener('click', function() {
+        console.log(this.classList);
         switch (readButton.textContent) {
             case 'Read':
+                this.classList.remove('btn-outline-success');
+                this.classList.add('btn-outline-warning');
                 readButton.textContent = 'Not read';
                 myLibrary.filter(book => book.title === this.getAttribute('booktitle'))[0].read = 'Not read';
                 break;
 
             case 'Not read':
+                this.classList.remove('btn-outline-warning');
+                this.classList.add('btn-outline-success');
                 readButton.textContent = 'Read';
                 myLibrary.filter(book => book.title === this.getAttribute('booktitle'))[0].read = 'Read';
                 break;
