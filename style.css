@@ -4,6 +4,14 @@ body {
     flex-direction: column;
 }
 
+h1 {
+    margin-left: 20px;
+}
+
+html {
+    margin-top: 15px;
+}
+
 table {
     display: flex;
     justify-content: center;
