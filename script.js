@@ -51,6 +51,7 @@ function updateTable(book) {
     readButton.textContent = book.read;
     removeButton.textContent = 'Remove'
 
+    readButton.setAttribute('booktitle', title.textContent);
     removeButton.setAttribute('booktitle', title.textContent);
 
     removeButton.addEventListener('click', function() {
@@ -68,10 +69,12 @@ function updateTable(book) {
         switch (readButton.textContent) {
             case 'Read':
                 readButton.textContent = 'Not read';
+                myLibrary.filter(book => book.title === this.getAttribute('booktitle'))[0].read = 'Not read';
                 break;
 
             case 'Not read':
                 readButton.textContent = 'Read';
+                myLibrary.filter(book => book.title === this.getAttribute('booktitle'))[0].read = 'Read';
                 break;
         }
     })
