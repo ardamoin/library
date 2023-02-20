@@ -17,18 +17,18 @@
 <body>
     <h1>library</h1>
 
-    <div class="fields">
+    <form class="fields">
         <div class="field">
             Book
-            <input type="text" id="book">
+            <input type="text" id="book" required>
         </div>
         <div class="field">
             Author
-            <input type="text" id="author">
+            <input type="text" id="author" required>
         </div>
         <div class="field">
             Pages
-            <input type="number" id="pages">
+            <input type="number" id="pages" min="1" required>
         </div>
         <div class="field">
             Status
@@ -39,7 +39,7 @@
         </div>
 
         <button class="submit btn btn-outline-primary btn-sm">Submit</button>
-    </div>
+    </form>
 
     
 

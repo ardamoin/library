@@ -113,8 +113,10 @@ for(let book of myLibrary) {
 
 let readButtons = document.querySelectorAll(".read-button");
 
-submit.addEventListener("click", () => {
-    if (bookName.value !== '' && author.value !== '' && pages.value !== '') {
+submit.addEventListener("click", (event) => {
+    const form = document.querySelector("form");
+    
+    if (form.checkValidity()) {
         const newBook = new Book(bookName.value, author.value, pages.value, read.value);
 
         if (!addBookToLibrary(newBook)) {
@@ -122,5 +124,7 @@ submit.addEventListener("click", () => {
         } 
         
         clearInputs();
+        form.reset();
+        event.preventDefault();
     }
-})
+});
